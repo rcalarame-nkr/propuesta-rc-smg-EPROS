@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Responsabilidad Civil Comprensiva - EPROS S.A.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2c5282;
+            --accent: #d69e2e;
+            --accent-hover: #b7791f;
+            --bg-body: #f7fafc;
+            --bg-sidebar: #ffffff;
+            --bg-card: #ffffff;
+            --text-dark: #1a202c;
+            --text-medium: #4a5568;
+            --text-muted: #718096;
+            --border-color: #e2e8f0;
+            --border-light: #edf2f7;
+            --green: #38a169;
+            --blue: #3182ce;
+            --purple: #805ad5;
+            --red: #e53e3e;
+            --teal: #319795;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-body);
+            min-height: 100vh;
+            color: var(--text-dark);
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
+            z-index: 1000;
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.04);
+        }
+
+        .sidebar-header {
+            padding: 24px 20px;
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .sidebar-header .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 22px;
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .sidebar-header h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar-header p {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sidebar-nav {
+            padding: 16px 0;
+        }
+
+        .sidebar-nav .nav-section {
+            padding: 8px 20px 6px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            padding: 11px 20px;
+            color: var(--text-medium);
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+            gap: 12px;
+        }
+
+        .sidebar-nav a:hover {
+            background: var(--border-light);
+            color: var(--primary);
+            border-left-color: var(--accent);
+        }
+
+        .sidebar-nav a.active {
+            background: rgba(26,54,93,0.06);
+            color: var(--primary);
+            border-left-color: var(--primary);
+            font-weight: 600;
+        }
+
+        .sidebar-nav a i {
+            width: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .sidebar-footer {
+            padding: 16px 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+        }
+
+        .sidebar-footer .date {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* MAIN CONTENT */
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, #2b6cb0 100%);
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(214,158,46,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(214,158,46,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.6;
+        }
+
+        .hero .client-info {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .hero .client-info .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.12);
+            padding: 10px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .hero .client-info .info-item i {
+            color: var(--accent);
+            font-size: 16px;
+        }
+
+        .hero .client-info .info-item .label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero .client-info .info-item .value {
+            font-size: 13px;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            padding: 50px 40px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 30px;
+        }
+
+        .section-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .section-header h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        .section-header .subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* CARDS */
+        .card-custom {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 24px;
+            transition: all 0.3s;
+            height: 100%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        .card-custom:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .card-custom .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .card-custom .card-icon.blue {
+            background: rgba(49,130,206,0.1);
+            color: var(--blue);
+        }
+
+        .card-custom .card-icon.green {
+            background: rgba(56,161,105,0.1);
+            color: var(--green);
+        }
+
+        .card-custom .card-icon.yellow {
+            background: rgba(214,158,46,0.1);
+            color: var(--accent);
+        }
+
+        .card-custom .card-icon.purple {
+            background: rgba(128,90,213,0.1);
+            color: var(--purple);
+        }
+
+        .card-custom .card-icon.red {
+            background: rgba(229,62,62,0.1);
+            color: var(--red);
+        }
+
+        .card-custom .card-icon.teal {
+            background: rgba(49,151,149,0.1);
+            color: var(--teal);
+        }
+
+        .card-custom h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .card-custom p {
+            font-size: 13px;
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* HIGHLIGHT BOX */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(26,54,93,0.04) 0%, rgba(26,54,93,0.02) 100%);
+            border: 2px solid var(--primary);
+            border-radius: 14px;
+            padding: 28px;
+        }
+
+        .highlight-box h3 {
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .highlight-box .amount {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .highlight-box .amount small {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .highlight-box .note {
+            font-size: 15px;
+            color: var(--text-medium);
+            margin-top: 12px;
+        }
+
+        /* EXCLUSION LIST */
+        .exclusion-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: rgba(229,62,62,0.04);
+            border: 1px solid rgba(229,62,62,0.12);
+            border-radius: 10px;
+            margin-bottom: 8px;
+            transition: all 0.2s;
+            flex: 1 1 auto;
+            min-height: 48px;
+        }
+
+        .exclusion-item:hover {
+            background: rgba(229,62,62,0.08);
+        }
+
+        .exclusion-item i {
+            color: var(--red);
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .exclusion-item span {
+            font-size: 13px;
+            color: var(--text-medium);
+        }
+
+        /* COVERAGE LIST */
+        .coverage-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 16px;
+            background: rgba(56,161,105,0.04);
+            border: 1px solid rgba(56,161,105,0.12);
+            border-radius: 10px;
+            margin-bottom: 8px;
+            transition: all 0.2s;
+        }
+
+        .coverage-item:hover {
+            background: rgba(56,161,105,0.08);
+        }
+
+        .coverage-item i {
+            color: var(--green);
+            font-size: 14px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .coverage-item .cov-text {
+            font-size: 13px;
+            color: var(--text-medium);
+            line-height: 1.5;
+        }
+
+        /* SUB-LIMIT BADGE */
+        .sublimit-badge {
+            display: inline-block;
+            background: rgba(128,90,213,0.1);
+            border: 1px solid rgba(128,90,213,0.2);
+            color: var(--purple);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        /* DIVIDER */
+        .section-divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 0 40px;
+        }
+
+        /* STATS ROW */
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .stat-card .stat-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .stat-card .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        /* MOBILE TOGGLE */
+        .mobile-toggle {
+            display: none;
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            z-index: 1100;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 999;
+        }
+
+        /* FOOTER */
+        .page-footer {
+            padding: 30px 40px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-card);
+        }
+
+        .page-footer p {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .page-footer p + p {
+            margin-top: 6px;
+            opacity: 0.7;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            .sidebar-overlay.active {
+                display: block;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .mobile-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .hero {
+                padding: 60px 24px 40px;
+            }
+            .hero h1 {
+                font-size: 30px;
+            }
+            .hero .client-info {
+                gap: 12px;
+            }
+            .content-section {
+                padding: 36px 24px;
+            }
+            .section-divider {
+                margin: 0 24px;
+            }
+            .page-footer {
+                padding: 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 50px 20px 32px;
+            }
+            .hero h1 {
+                font-size: 26px;
+            }
+            .hero p {
+                font-size: 14px;
+            }
+            .hero .client-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .hero .client-info .info-item {
+                width: 100%;
+            }
+            .section-header h2 {
+                font-size: 19px;
+            }
+            .stat-card .stat-value {
+                font-size: 24px;
+            }
+            .highlight-box .amount {
+                font-size: 32px;
+            }
+            .highlight-box .amount small {
+                font-size: 13px;
+                display: block;
+                margin-top: 4px;
+            }
+            .card-custom {
+                padding: 20px;
+            }
+            .coverage-item, .exclusion-item {
+                padding: 12px 14px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 44px 16px 28px;
+            }
+            .hero h1 {
+                font-size: 22px;
+            }
+            .hero-badge {
+                font-size: 10px;
+                padding: 5px 12px;
+            }
+            .content-section {
+                padding: 28px 16px;
+            }
+            .section-divider {
+                margin: 0 16px;
+            }
+            .section-header {
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+            .section-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 16px;
+            }
+            .section-header h2 {
+                font-size: 17px;
+            }
+            .stat-card {
+                padding: 18px 14px;
+            }
+            .stat-card .stat-value {
+                font-size: 22px;
+            }
+            .stat-card .stat-label {
+                font-size: 10px;
+            }
+            .highlight-box {
+                padding: 20px;
+            }
+            .highlight-box h3 {
+                font-size: 16px;
+            }
+            .highlight-box .amount {
+                font-size: 26px;
+            }
+            .card-custom h4 {
+                font-size: 14px;
+            }
+            .card-custom p {
+                font-size: 12px;
+            }
+            .coverage-item .cov-text,
+            .exclusion-item span {
+                font-size: 12px;
+            }
+            .sublimit-badge {
+                font-size: 10px;
+                padding: 3px 8px;
+            }
+            .page-footer {
+                padding: 20px 16px;
+            }
+        }
+
+        /* SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-body);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+
+        /* PRINT */
+        .print-header { display: none; }
+        .print-watermark { display: none; }
+
+        @media print {
+            .sidebar, .mobile-toggle, .sidebar-overlay, .sidebar-footer button { display: none !important; }
+            .main-content { margin-left: 0 !important; }
+            .hero { padding: 20px 30px !important; }
+            .hero h1 { font-size: 24px !important; }
+            .hero p { font-size: 13px !important; }
+            .hero .client-info { margin-top: 14px !important; }
+            .hero .client-info .info-item { padding: 6px 12px !important; }
+            .content-section { padding: 14px 30px !important; page-break-inside: avoid; }
+            .keep-together { page-break-inside: avoid; }
+            .flex-grid__item--2 { flex: 1 1 calc(50% - 0.75rem) !important; }
+            .flex-grid__item--3 { flex: 1 1 calc(33.333% - 1rem) !important; }
+            .flex-grid__item--4 { flex: 1 1 calc(25% - 1.125rem) !important; }
+            .section-header { margin-bottom: 14px !important; }
+            .section-header h2 { font-size: 17px !important; }
+            .section-divider { margin: 0 30px !important; }
+            .page-footer { padding: 12px 30px !important; }
+            .card-custom { padding: 14px !important; break-inside: avoid; }
+            .card-custom h4 { font-size: 13px !important; }
+            .card-custom p { font-size: 12px !important; }
+            .card-custom .card-icon { width: 30px; height: 30px; font-size: 13px; margin-bottom: 8px; }
+            .highlight-box { padding: 16px !important; }
+            .highlight-box .amount { font-size: 32px !important; }
+            .highlight-box .note { font-size: 13px !important; margin-top: 6px !important; }
+            .coverage-item { padding: 7px 10px !important; margin-bottom: 4px !important; }
+            .coverage-item .cov-text { font-size: 12px !important; }
+            .exclusion-item { padding: 5px 10px !important; margin-bottom: 4px !important; }
+            .exclusion-item span { font-size: 12px !important; }
+            .exclusiones-grid .flex-grid__item { display: flex; }
+            .exclusiones-grid .exclusion-item { flex: 1 1 auto; width: 100%; }
+            .sublimit-badge { margin-top: 4px !important; }
+            .flex-grid { gap: 0.6rem !important; }
+            .flex-grid--gap-lg { gap: 0.6rem !important; }
+            .flex-grid--gap-md { gap: 0.5rem !important; }
+            .hero-badge { margin-bottom: 10px !important; padding: 4px 12px !important; }
+            body { background: #fff; }
+
+            .print-header {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 8px 0 12px;
+                border-bottom: 2px solid var(--primary);
+                margin: 0 30px 14px;
+            }
+            .print-header img { height: 44px; width: auto; }
+
+            .print-watermark {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 9999;
+                pointer-events: none;
+            }
+            .print-watermark img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0.12;
+            }
+        }
+
+        /* ANIMATIONS */
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    
+        /* FLEX-GRID SYSTEM */
+        .flex-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .flex-grid--gap-sm { gap: 0.75rem; }
+        .flex-grid--gap-md { gap: 1rem; }
+        .flex-grid--gap-lg { gap: 1.5rem; }
+
+        .flex-grid__item {
+            flex: 1 1 100%;
+            min-width: 0;
+        }
+
+        .flex-grid__item--1 { flex: 1 1 100%; }
+        .flex-grid__item--2 { flex: 1 1 calc(50% - 0.75rem); }
+        .flex-grid__item--3 { flex: 1 1 calc(33.333% - 1rem); }
+        .flex-grid__item--4 { flex: 1 1 calc(25% - 1.125rem); }
+
+        .exclusiones-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 1fr;
+            gap: 1rem;
+        }
+        .exclusiones-grid .flex-grid__item {
+            display: flex;
+        }
+        .exclusiones-grid .exclusion-item {
+            flex: 1 1 auto;
+            width: 100%;
+        }
+
+        @media (max-width: 992px) {
+            .flex-grid__item--3 { flex: 1 1 calc(50% - 0.75rem); }
+            .flex-grid__item--4 { flex: 1 1 calc(50% - 0.75rem); }
+        }
+
+        @media (max-width: 768px) {
+            .flex-grid__item--2,
+            .flex-grid__item--3,
+            .flex-grid__item--4 { flex: 1 1 100%; }
+            .exclusiones-grid { grid-template-columns: repeat(1, 1fr); }
+        }
+
+        /* CONDICIONES COMERCIALES */
+        .cc-row {
+            display: flex;
+            gap: 8px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-light);
+            align-items: baseline;
+        }
+        .cc-row:last-child {
+            border-bottom: none;
+        }
+        .cc-label {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        .cc-value {
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        /* MODAL */
+        .modal-custom .modal-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #fff;
+            border-radius: 14px 14px 0 0;
+            padding: 16px 20px;
+        }
+        .modal-custom .modal-header .modal-title {
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .modal-custom .modal-body {
+            padding: 20px;
+        }
+        .modal-custom .modal-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 12px 20px;
+        }
+        .modal-custom .form-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .modal-custom .form-control {
+            border-radius: 8px;
+            border-color: var(--border-color);
+            font-size: 14px;
+        }
+        .modal-custom .form-control:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 0.2rem rgba(214,158,46,0.15);
+        }
+        .modal-custom .input-group-text {
+            background: var(--border-light);
+            color: var(--text-muted);
+            border-color: var(--border-color);
+            font-size: 13px;
+        }
+        .modal-custom .modal-content {
+            border: none;
+            border-radius: 14px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        .modal-custom .btn-accent {
+            background: var(--accent);
+            border: none;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 8px 20px;
+        }
+        .modal-custom .btn-accent:hover {
+            background: var(--accent-hover);
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- PRINT WATERMARK -->
+<div class="print-watermark"><img src="Grafico fondo.png" alt=""></div>
+
+<!-- MOBILE TOGGLE -->
+<button class="mobile-toggle" onclick="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+</button>
+
+<!-- SIDEBAR OVERLAY -->
+<div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+    <div class="sidebar-header">
+        <div class="logo-icon" style="width: auto; height: auto; padding: 0 12px; background: #fff; border: 1px solid var(--border-color);"><img src="Logo.png" alt="Logo" style="width: auto; height: 48px; object-fit: contain;"></div>
+        <h3>Propuesta Seguro</h3>
+        <p>Responsabilidad Civil Comprensiva</p>
+        <p style="margin-top: 8px; font-size: 12px; color: var(--text-dark); font-weight: 600; letter-spacing: 0;">Norfolk Consulting Group S.A.</p>
+    </div>
+    <div class="sidebar-nav">
+        <div class="nav-section">Principal</div>
+        <a href="#inicio" class="active" onclick="setActive(this)">
+            <i class="fas fa-home"></i> Inicio
+        </a>
+        <a href="#tomador" onclick="setActive(this)">
+            <i class="fas fa-building"></i> Tomador
+        </a>
+        <a href="#condiciones" onclick="setActive(this)">
+            <i class="fas fa-file-contract"></i> Condiciones
+        </a>
+        <a href="#suma" onclick="setActive(this)">
+            <i class="fas fa-dollar-sign"></i> Suma Asegurada
+        </a>
+        <a href="#deducibles" onclick="setActive(this)">
+            <i class="fas fa-coins"></i> Deducibles
+        </a>
+        <a href="#cobertura" onclick="setActive(this)">
+            <i class="fas fa-shield-halved"></i> Cobertura Principal
+        </a>
+        <a href="#adicional" onclick="setActive(this)">
+            <i class="fas fa-plus-circle"></i> Coberturas Adicionales
+        </a>
+        <a href="#exclusiones" onclick="setActive(this)">
+            <i class="fas fa-ban"></i> Exclusiones
+        </a>
+    </div>
+    <div class="sidebar-footer">
+        <button onclick="openCondiciones()" style="width: 100%; padding: 10px; background: var(--accent); color: #fff; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px;">
+            <i class="fas fa-tags"></i> Condiciones Comerciales
+        </button>
+        <button onclick="generatePDF()" style="width: 100%; padding: 10px; background: var(--primary); color: #fff; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px;">
+            <i class="fas fa-file-pdf"></i> Generar Propuesta PDF
+        </button>
+        <div class="date"><i class="fas fa-calendar-alt"></i> 29 de julio de 2026</div>
+    </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+    <!-- PRINT HEADER -->
+    <div class="print-header">
+        <img src="Logo.png" alt="Norfolk Consulting Group S.A.">
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="hero-content fade-in">
+            <div class="hero-badge">
+                <i class="fas fa-shield-halved"></i> Propuesta de Seguro
+            </div>
+            <h1>Responsabilidad Civil<br><span>Comprensiva</span></h1>
+            <p>Cobertura integral de Responsabilidad Civil para uso y tenencia de 6 edificios, locales y departamentos ubicados en CABA.</p>
+            <div class="client-info">
+                <div class="info-item">
+                    <i class="fas fa-landmark"></i>
+                    <div>
+                        <div class="label">Aseguradora</div>
+                        <div class="value">SMG Compañía Argentina de Seguros S.A.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TOMADOR -->
+    <section class="content-section" id="tomador">
+        <div class="section-header">
+            <div class="section-icon"><i class="fas fa-building"></i></div>
+            <div>
+                <h2>Datos del Tomador</h2>
+                <div class="subtitle">Información principal del contratante</div>
+            </div>
+        </div>
+        <div class="flex-grid flex-grid--gap-lg">
+            <div class="flex-grid__item flex-grid__item--2">
+                <div class="card-custom">
+                    <div class="card-icon blue"><i class="fas fa-landmark"></i></div>
+                    <h4>Tomador del Seguro</h4>
+                    <p><strong>EPROS S.A.</strong></p>
+                    <p>CUIT: 30-63822955-9</p>
+                </div>
+            </div>
+            <div class="flex-grid__item flex-grid__item--2">
+                <div class="card-custom">
+                    <div class="card-icon green"><i class="fas fa-user-shield"></i></div>
+                    <h4>Asegurables</h4>
+                    <p>EPROS S.A. — Actividad: USO Y TENENCIA DE 6 EDIFICIOS/LOCALES/DEPARTAMENTOS</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONDICIONES + COBERTURA (keep together) -->
+    <div class="keep-together">
+
+    <!-- CONDICIONES -->
+    <section class="content-section" id="condiciones">
+        <div class="section-header">
+            <div class="section-icon"><i class="fas fa-file-contract"></i></div>
+            <div>
+                <h2>Condiciones de la Póliza</h2>
+                <div class="subtitle">Términos y condiciones generales</div>
+            </div>
+        </div>
+        <div class="flex-grid flex-grid--gap-lg">
+            <div class="flex-grid__item flex-grid__item--3">
+                <div class="card-custom">
+                    <div class="card-icon yellow"><i class="fas fa-globe-americas"></i></div>
+                    <h4>Ámbito de Cobertura</h4>
+                    <p>República Argentina</p>
+                </div>
+            </div>
+            <div class="flex-grid__item flex-grid__item--3">
+                <div class="card-custom">
+                    <div class="card-icon yellow"><i class="fas fa-file-alt"></i></div>
+                    <h4>Vigencia</h4>
+                    <p>Desde el 28/08/2026 hasta el 28/08/2027</p>
+                </div>
+            </div>
+            <div class="flex-grid__item flex-grid__item--1">
+                <div class="card-custom">
+                    <div class="card-icon purple"><i class="fas fa-map-marked-alt"></i></div>
+                    <h4>Ubicaciones de Riesgo</h4>
+                    <p><strong>6 edificios/locales/departamentos:</strong></p>
+                    <p>• Av. Olazábal 5670, CABA<br>
+                    • Av. Carabobo 443, CABA<br>
+                    • Av. R. Scalabrini Ortiz 676, CABA<br>
+                    • French 3085, CABA<br>
+                    • French 3037, CABA<br>
+                    • Pacheco de Melo 2941, CABA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUMA ASEGURADA -->
+    <section class="content-section" id="suma">
+        <div class="section-header">
+            <div class="section-icon"><i class="fas fa-dollar-sign"></i></div>
+            <div>
+                <h2>Suma Asegurada</h2>
+                <div class="subtitle">Límite máximo de responsabilidad</div>
+            </div>
+        </div>
+        <div class="highlight-box">
+            <h3>Límite Total de Responsabilidad</h3>
+            <div class="amount">
+                USD 1.000.000 <small>por acontecimiento y en el acumulado anual</small>
+            </div>
+            <div class="note">Límite indistinto y combinado para todas las ubicaciones.</div>
+        </div>
+    </section>
+
+    <!-- DEDUCIBLES -->
+    <section class="content-section" id="deducibles">
+        <div class="section-header">
+            <div class="section-icon"><i class="fas fa-coins"></i></div>
+            <div>
+                <h2>Deducibles</h2>
+            </div>
+        </div>
+        <div class="flex-grid flex-grid--gap-lg">
+            <div class="flex-grid__item flex-grid__item--1">
+                <div class="card-custom" style="border-left: 4px solid var(--accent);">
+                    <div class="card-icon yellow"><i class="fas fa-percent"></i></div>
+                    <h4>Deducible Aplicable</h4>
+                    <p><strong>10%</strong> del monto a indemnizar, con un <strong>mínimo del 0.20%</strong> y un <strong>máximo del 2.00%</strong> de la suma asegurada (USD 1.000.000).</p>
+                    <p style="margin-top: 8px; font-size: 12px; color: var(--text-muted);">Deducible calculado sobre el monto de indemnización de cada siniestro.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- COBERTURAS -->
+    <section class="content-section" id="cobertura">
+        <div class="section-header">
+            <div class="section-icon"><i class="fas fa-shield-halved"></i></div>
+            <div>
+                <h2>Cobertura Principal</h2>
+                <div class="subtitle">Responsabilidad Civil Comprensiva</div>
+            </div>
+        </div>
+        <div class="highlight-box" style="margin-bottom: 1.5rem; break-inside: avoid;">
+            <h3 style="font-size: 15px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">Riesgo Cubierto</h3>
+            <p style="font-size: 13px; line-height: 1.7; color: var(--text-medium);">
+                El Asegurador se obliga a mantener indemne al Asegurado por cuanto deba a tercero en razón de la Responsabilidad Civil no contractual que surja de los artículos 1716, 1717, 1721, 1725, 1726, 1729 a 1753, 1757, 1758, coincidentes y concordantes, del Código Civil y Comercial, en que incurriese exclusivamente como consecuencia del ejercicio de su actividad como se detalla en las Condiciones Particulares dentro del territorio de la República Argentina.
+            </p>
+            <p style="font-size: 13px; line-height: 1.7; color: var(--text-medium); margin-top: 8px;">
+                El Asegurador asume la obligación precedente hasta los alcances y límites previstos en las Condiciones Particulares con relación a las indemnizaciones que sean a cargo del Asegurado y que surjan de:
+            </p>
+            <div style="display: flex; gap: 1.5rem; margin-top: 10px; flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: 8px; background: rgba(56,161,105,0.06); padding: 8px 16px; border-radius: 8px; border: 1px solid rgba(56,161,105,0.12);">
+                    <i class="fas fa-check-circle" style="color: var(--green); font-size: 14px;"></i>
+                    <span style="font-size: 13px; font-weight: 600; color: var(--text-dark);">A) Daños Accidentales a Personas Físicas</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; background: rgba(56,161,105,0.06); padding: 8px 16px; border-radius: 8px; border: 1px solid rgba(56,161,105,0.12);">
+                    <i class="fas fa-check-circle" style="color: var(--green); font-size: 14px;"></i>
+                    <span style="font-size: 13px; font-weight: 600; color: var(--text-dark);">B) Daños Accidentales a Cosas Materiales</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 1rem;" id="adicional">
+            <div class="section-header" style="margin-bottom: 0.75rem;">
+                <div class="section-icon" style="width: 36px; height: 36px; font-size: 14px;"><i class="fas fa-plus-circle"></i></div>
+                <div>
+                    <h2 style="font-size: 18px;">Coberturas Adicionales y Extensiones</h2>
+                    <div class="subtitle">Extensiones incluidas sin costo adicional</div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-grid flex-grid--gap-lg">
+            <div class="flex-grid__item flex-grid__item--3">
+                <div class="card-custom">
+                    <div class="card-icon red"><i class="fas fa-fire"></i></div>
+                    <h4>Incendio, Rayo, Explosión</h4>
+                    <p>Cláusula 551 — Cobertura contra incendio, rayo, explosión, descargas eléctricas y escape de gas.</p>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--3">
+                <div class="card-custom">
+                    <div class="card-icon yellow"><i class="fas fa-sign"></i></div>
+                    <h4>Carteles y Letreros</h4>
+                    <p>Cláusula 553 — Cobertura para carteles y/o letreros y objetos afines.</p>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--3">
+                <div class="card-custom">
+                    <div class="card-icon blue"><i class="fas fa-elevator"></i></div>
+                    <h4>Ascensores y Montacargas</h4>
+                    <p>Cláusula 554 — Cobertura para ascensores y montacargas.</p>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--3">
+                <div class="card-custom">
+                    <div class="card-icon teal"><i class="fas fa-temperature-high"></i></div>
+                    <h4>Instalaciones a Vapor/Calderas</h4>
+                    <p>Cláusula 556 — Cobertura para instalaciones a vapor, agua caliente o aceite caliente (calderas).</p>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--3">
+                <div class="card-custom">
+                    <div class="card-icon green"><i class="fas fa-wrench"></i></div>
+                    <h4>Rotura de Cañerías</h4>
+                    <p>Cláusula 561 — Cobertura por rotura de cañerías.</p>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--3">
+                <div class="card-custom">
+                    <div class="card-icon purple"><i class="fas fa-truck"></i></div>
+                    <h4>Carga y Descarga</h4>
+                    <p>Cláusula 559 — Cobertura para carga y descarga de bienes fuera del local del asegurado.</p>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--3">
+                <div class="card-custom">
+                    <div class="card-icon red"><i class="fas fa-gun"></i></div>
+                    <h4>Armas de Fuego</h4>
+                    <p>Cláusula 563 — Sublímite USD 50.000 por evento y agregado.</p>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--3">
+                <div class="card-custom">
+                    <div class="card-icon teal"><i class="fas fa-arrows-alt"></i></div>
+                    <h4>RC Linderos</h4>
+                    <p>Cláusula 567 — Cobertura de Responsabilidad Civil a linderos.</p>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--3">
+                <div class="card-custom">
+                    <div class="card-icon blue"><i class="fas fa-bolt"></i></div>
+                    <h4>Generador Eléctrico</h4>
+                    <p>RC emergente de uso de generador eléctrico.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- EXCLUSIONES -->
+    <section class="content-section" id="exclusiones">
+        <div class="section-header">
+            <div class="section-icon" style="background: linear-gradient(135deg, var(--red), #c53030);"><i class="fas fa-ban"></i></div>
+            <div>
+                <h2>Principales Exclusiones</h2>
+                <div class="subtitle">Conceptos no cubiertos por la póliza</div>
+            </div>
+        </div>
+        <div class="flex-grid flex-grid--gap-md exclusiones-grid">
+            <div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Responsabilidad Civil Patronal y/o Empleador</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Responsabilidad Civil Automotores</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Responsabilidad Civil Profesional (D&O, Errores y Omisiones)</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Responsabilidad Civil Productos</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Responsabilidad Civil de Orden Contractual</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Daños al Medio Ambiente y/o al Ecosistema</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Polución y/o Contaminación (gradual y súbita/accidental)</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Pérdidas Financieras Puras</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Multas y Penalidades</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Transmisión de Enfermedades (incluye COVID-19)</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Asbestos y PCB's</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Lucro Cesante</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Operaciones Completadas</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Campos Electromagnéticos (EMF)</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Daño Moral no consecuencial, Acoso Sexual, Discriminación</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Publicidad, Libelo, Calumnias, Competencia Desleal</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Construcciones, Refacciones, Ampliaciones, Demoliciones y/o Montajes</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Bienes de Terceros bajo Cuidado, Custodia o Control</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Guarda de Vehículos de Terceros</span>
+                </div>
+            </div>
+<div class="flex-grid__item flex-grid__item--2">
+                <div class="exclusion-item">
+                    <i class="fas fa-times-circle"></i>
+                    <span>RC emergente de Actividades Privadas de los Inquilinos</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONDICIONES COMERCIALES -->
+    <section class="content-section" id="condiciones-comerciales" style="display: none;">
+        <div class="section-header">
+            <div class="section-icon" style="background: linear-gradient(135deg, var(--accent), var(--accent-hover));"><i class="fas fa-tags"></i></div>
+            <div>
+                <h2>Condiciones Comerciales</h2>
+                <div class="subtitle">Prima, premio y condiciones de pago</div>
+            </div>
+        </div>
+        <div class="card-custom" style="border-left: 4px solid var(--accent);">
+            <div id="cc-prima-row" class="cc-row" style="display: none;">
+                <span class="cc-label">PRIMA:</span>
+                <span class="cc-value" id="cc-prima-value"></span>
+            </div>
+            <div id="cc-premio-row" class="cc-row" style="display: none;">
+                <span class="cc-label">PREMIO:</span>
+                <span class="cc-value" id="cc-premio-value"></span>
+            </div>
+            <div id="cc-cuotas-row" class="cc-row" style="display: none;">
+                <span class="cc-value" id="cc-cuotas-value"></span>
+            </div>
+            <div id="cc-rf-row" class="cc-row" style="display: none;">
+                <span class="cc-label">RF:</span>
+                <span class="cc-value" id="cc-rf-value"></span>
+            </div>
+            <div id="cc-obs-row" class="cc-row" style="display: none;">
+                <span class="cc-label">Observaciones:</span>
+                <span class="cc-value" id="cc-obs-value"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+        <p>Propuesta de Seguro — Responsabilidad Civil Comprensiva — Norfolk Consulting Group S.A.</p>
+        <p id="fecha-emision">Documento generado el 29 de julio de 2026</p>
+    </footer>
+
+</div>
+
+<!-- MODAL CONDICIONES COMERCIALES -->
+<div class="modal fade modal-custom" id="modalCondiciones" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="fas fa-tags" style="margin-right: 8px;"></i>Condiciones Comerciales</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formCondiciones">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Prima</label>
+                            <div class="input-group">
+                                <select class="form-select moneda-select" id="prima-moneda" style="max-width: 110px;">
+                                    <option value="ARS">ARS</option>
+                                    <option value="USD">USD</option>
+                                </select>
+                                <input type="text" class="form-control moneda-input" id="prima-importe" placeholder="0,00" inputmode="decimal">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Premio</label>
+                            <div class="input-group">
+                                <select class="form-select moneda-select" id="premio-moneda" style="max-width: 110px;">
+                                    <option value="ARS">ARS</option>
+                                    <option value="USD">USD</option>
+                                </select>
+                                <input type="text" class="form-control moneda-input" id="premio-importe" placeholder="0,00" inputmode="decimal">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Cuotas</label>
+                            <input type="text" class="form-control" id="cuotas" placeholder="Ej: 10" inputmode="numeric">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Recargo Financiero (%)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control porcentaje-input" id="recargo-financiero" placeholder="0,00">
+                                <span class="input-group-text">%</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Observaciones</label>
+                            <textarea class="form-control" id="observaciones" rows="3" placeholder="Detalle adicional / condiciones particulares..."></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-accent" onclick="guardarCondiciones()"><i class="fas fa-check" style="margin-right: 6px;"></i>Guardar y mostrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function generatePDF() {
+        const printWin = window.open('', '_blank', 'width=900,height=1200');
+        if (!printWin) {
+            alert('Habilita las ventanas emergentes para generar el PDF.');
+            return;
+        }
+        const styles = Array.from(document.querySelectorAll('style'))
+            .map(s => s.innerHTML).join('\n');
+        const main = document.querySelector('.main-content');
+        const content = document.createElement('div');
+        content.innerHTML = main.outerHTML;
+        content.querySelector('.print-header')?.remove();
+
+        const fecha = new Date().toLocaleDateString('es-AR', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+        const fechaEl = content.querySelector('#fecha-emision');
+        if (fechaEl) {
+            fechaEl.textContent = 'Documento generado el ' + fecha;
+        }
+
+        printWin.document.write(
+            '<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">' +
+            '<title>Propuesta RC Comprensiva - EPROS S.A.</title>' +
+            '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">' +
+            '<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">' +
+            '<style>' + styles + '</style>' +
+            '<style>' +
+            '@page { size: A4; margin: 0; }' +
+            '@media print {' +
+            '.print-header { display: flex; align-items: center; justify-content: center; padding: 8px 0 12px; border-bottom: 2px solid var(--primary); margin: 0 30px 14px; }' +
+            '.print-header img { height: 44px; width: auto; }' +
+            '.print-watermark { display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; pointer-events: none; }' +
+            '.print-watermark img { width: 100%; height: 100%; object-fit: cover; opacity: 0.12; }' +
+            '.main-content { margin-left: 0 !important; }' +
+            '.hero { padding: 20px 30px; }' +
+            '.hero h1 { font-size: 24px; }' +
+            '.hero p { font-size: 13px; }' +
+            '.hero .client-info { margin-top: 14px; }' +
+            '.hero .client-info .info-item { padding: 6px 12px; }' +
+            '.content-section { padding: 14px 30px; page-break-inside: avoid; }' +
+            '.keep-together { page-break-inside: avoid; }' +
+            '.flex-grid__item--2 { flex: 1 1 calc(50% - 0.75rem) !important; }' +
+            '.flex-grid__item--3 { flex: 1 1 calc(33.333% - 1rem) !important; }' +
+            '.flex-grid__item--4 { flex: 1 1 calc(25% - 1.125rem) !important; }' +
+            '.section-header { margin-bottom: 14px; }' +
+            '.section-header h2 { font-size: 17px; }' +
+            '.section-divider { margin: 0 30px; }' +
+            '.page-footer { padding: 12px 30px; }' +
+            '.card-custom { padding: 14px; break-inside: avoid; }' +
+            '.card-custom h4 { font-size: 13px; }' +
+            '.card-custom p { font-size: 12px; }' +
+            '.card-custom .card-icon { width: 30px; height: 30px; font-size: 13px; margin-bottom: 8px; }' +
+            '.highlight-box { padding: 16px; }' +
+            '.highlight-box .amount { font-size: 32px; }' +
+            '.highlight-box .note { font-size: 13px; margin-top: 6px; }' +
+            '.coverage-item { padding: 7px 10px; margin-bottom: 4px; }' +
+            '.coverage-item .cov-text { font-size: 12px; }' +
+            '.exclusion-item { padding: 5px 10px; margin-bottom: 4px; min-height: 40px; }' +
+            '.exclusion-item span { font-size: 12px; }' +
+            '.exclusiones-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-rows: 1fr; gap: 0.5rem; }' +
+            '.cc-row { display: flex; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--border-light); align-items: baseline; }' +
+            '.cc-row:last-child { border-bottom: none; }' +
+            '.cc-label { font-weight: 700; font-size: 13px; color: var(--primary); flex-shrink: 0; }' +
+            '.cc-value { font-size: 13px; color: var(--text-dark); }' +
+            '.exclusiones-grid .flex-grid__item { display: flex; }' +
+            '.exclusiones-grid .exclusion-item { flex: 1 1 auto; width: 100%; }' +
+            '.flex-grid { gap: 0.6rem; }' +
+            '.flex-grid--gap-lg { gap: 0.6rem; }' +
+            '.flex-grid--gap-md { gap: 0.5rem; }' +
+            'body { background: #fff; }' +
+            '}</style></head><body>' +
+            '<div class="print-watermark"><img src="Grafico fondo.png" alt=""></div>' +
+            '<div class="print-header"><img src="Logo.png" alt="Norfolk Consulting Group S.A."></div>' +
+            content.innerHTML +
+            '</body></html>'
+        );
+        printWin.document.close();
+        printWin.onload = function() {
+            printWin.focus();
+            if (printWin.document.fonts && printWin.document.fonts.ready) {
+                printWin.document.fonts.ready.then(function() {
+                    printWin.print();
+                }).catch(function() {
+                    printWin.print();
+                });
+            } else {
+                printWin.print();
+            }
+        };
+    }
+
+    function formatNumero(valor) {
+        if (valor === '' || valor == null) return '';
+        let limpio = String(valor).replace(/[^\d.,]/g, '');
+        const negativo = limpio.startsWith('-');
+        if (negativo) limpio = limpio.slice(1);
+
+        const ultimaComa = limpio.lastIndexOf(',');
+        const ultimoPunto = limpio.lastIndexOf('.');
+        let entero = limpio, decimal = '', tieneDecimal = false;
+
+        if (ultimaComa > ultimoPunto) {
+            entero = limpio.slice(0, ultimaComa);
+            decimal = limpio.slice(ultimaComa + 1);
+            tieneDecimal = true;
+        } else if (ultimoPunto > ultimaComa) {
+            entero = limpio.slice(0, ultimoPunto);
+            decimal = limpio.slice(ultimoPunto + 1);
+            tieneDecimal = true;
+        }
+
+        entero = entero.replace(/\D/g, '');
+        decimal = decimal.replace(/\D/g, '').slice(0, 2);
+
+        let resultado;
+        if (tieneDecimal) {
+            resultado = entero.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ',' + decimal;
+        } else {
+            resultado = entero.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        }
+        return negativo ? '-' + resultado : resultado;
+    }
+
+    function formatImporte(valor) {
+        const n = parseFloat(String(valor).replace(/\./g, '').replace(',', '.'));
+        if (isNaN(n)) return '';
+        return n.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function formatPorcentaje(valor) {
+        const n = parseFloat(String(valor).replace(',', '.'));
+        if (isNaN(n)) return '';
+        return n.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+    }
+
+    function initInputFormato() {
+        document.querySelectorAll('.moneda-input').forEach(function(input) {
+            input.addEventListener('input', function() {
+                input.value = formatNumero(input.value);
+            });
+            input.addEventListener('blur', function() {
+                if (input.value) input.value = formatImporte(input.value);
+            });
+        });
+        const rf = document.getElementById('recargo-financiero');
+        if (rf) {
+            rf.addEventListener('input', function() {
+                rf.value = formatNumero(rf.value);
+            });
+            rf.addEventListener('blur', function() {
+                if (rf.value) rf.value = formatPorcentaje(rf.value);
+            });
+        }
+        const cuotas = document.getElementById('cuotas');
+        if (cuotas) {
+            cuotas.addEventListener('input', function() {
+                cuotas.value = cuotas.value.replace(/[^\d]/g, '').slice(0, 4);
+            });
+        }
+    }
+
+    function openCondiciones() {
+        const modal = new bootstrap.Modal(document.getElementById('modalCondiciones'));
+        modal.show();
+    }
+
+    function guardarCondiciones() {
+        const primaMoneda = document.getElementById('prima-moneda').value;
+        const primaImporte = document.getElementById('prima-importe').value;
+        const premioMoneda = document.getElementById('premio-moneda').value;
+        const premioImporte = document.getElementById('premio-importe').value;
+        const cuotas = document.getElementById('cuotas').value;
+        const rf = document.getElementById('recargo-financiero').value;
+        const obs = document.getElementById('observaciones').value.trim();
+
+        const seccion = document.getElementById('condiciones-comerciales');
+
+        const primaRow = document.getElementById('cc-prima-row');
+        const premioRow = document.getElementById('cc-premio-row');
+        const cuotasRow = document.getElementById('cc-cuotas-row');
+        const rfRow = document.getElementById('cc-rf-row');
+        const obsRow = document.getElementById('cc-obs-row');
+
+        let tieneDatos = false;
+
+        if (primaImporte) {
+            document.getElementById('cc-prima-value').textContent =
+                primaMoneda + ' ' + formatImporte(primaImporte) + '.-';
+            primaRow.style.display = 'flex';
+            tieneDatos = true;
+        } else {
+            primaRow.style.display = 'none';
+        }
+
+        if (premioImporte) {
+            document.getElementById('cc-premio-value').textContent =
+                premioMoneda + ' ' + formatImporte(premioImporte) + '.- + IIBB de corresponder';
+            premioRow.style.display = 'flex';
+            tieneDatos = true;
+        } else {
+            premioRow.style.display = 'none';
+        }
+
+        if (cuotas) {
+            document.getElementById('cc-cuotas-value').textContent = cuotas + ' CUOTAS';
+            cuotasRow.style.display = 'flex';
+            tieneDatos = true;
+        } else {
+            cuotasRow.style.display = 'none';
+        }
+
+        if (rf) {
+            document.getElementById('cc-rf-value').textContent = formatPorcentaje(rf) + '%';
+            rfRow.style.display = 'flex';
+            tieneDatos = true;
+        } else {
+            rfRow.style.display = 'none';
+        }
+
+        if (obs) {
+            document.getElementById('cc-obs-value').textContent = obs;
+            obsRow.style.display = 'flex';
+            tieneDatos = true;
+        } else {
+            obsRow.style.display = 'none';
+        }
+
+        if (tieneDatos) {
+            seccion.style.display = 'block';
+        } else {
+            seccion.style.display = 'none';
+        }
+
+        const modal = bootstrap.Modal.getInstance(document.getElementById('modalCondiciones'));
+        if (modal) modal.hide();
+    }
+
+    function toggleSidebar() {
+        document.querySelector('.sidebar').classList.toggle('open');
+        document.querySelector('.sidebar-overlay').classList.toggle('active');
+    }
+
+    initInputFormato();
+
+    function setActive(el) {
+        document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+        el.classList.add('active');
+        if (window.innerWidth <= 992) {
+            toggleSidebar();
+        }
+    }
+
+    document.querySelectorAll('.sidebar-nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    const sections = document.querySelectorAll('.content-section, .hero');
+    const navLinks = document.querySelectorAll('.sidebar-nav a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
